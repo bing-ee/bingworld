@@ -13,18 +13,22 @@
     - spring version을 5.x로 변경(혹은 필요 버전에 맞게 변경)
     - 'maven-compiler-plugin'의 1.6을 1.8로 수정
     - lombok 라이브러리 설치(https://projectlombok.org/download) : toString이나 getter, Setter 생성자 들을 자동으로 생성해줌
+	```    
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.0</version>
             <scope>provided</scope>
         </dependency>
+	```
     - test를 위해 spring-test 추가
+    ```
         <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>5.2.2.RELEASE</version>
 		</dependency>
+		```
     - junit은 4.10 이상으로 변경(4.12)
 
 3. jdbc 연결
@@ -64,11 +68,13 @@
     - DataSource를 통해 매번 데이터베이스와 연결하는 방식이 아닌 미리 연결을 맺어주고 반환하는 구조를 이용 -> 성능 향상
     - HikariCP(https://github.com/brettwooldridge/HikariCP) 이용 
     - pom.xml에 추가
+    ```
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
             <version>3.4.2</version>
         </dependency>
+	```
     - root-context.xml 설정
          ```
             <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
